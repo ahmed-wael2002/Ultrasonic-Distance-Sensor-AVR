@@ -1,0 +1,1009 @@
+14:21:17 **** Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../gpio.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"gpio.d" -MT"gpio.o" -c -o "gpio.o" "../gpio.c"
+Finished building: ../gpio.c
+ 
+Building file: ../icu.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"icu.d" -MT"icu.o" -c -o "icu.o" "../icu.c"
+../icu.c: In function 'ICU_setCallBack':
+../icu.c:82: warning: function return types not compatible due to 'volatile'
+Finished building: ../icu.c
+ 
+Building file: ../lcd.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"lcd.d" -MT"lcd.o" -c -o "lcd.o" "../lcd.c"
+In file included from ../lcd.c:13:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../lcd.c: In function 'LCD_intgerToString':
+../lcd.c:209: warning: implicit declaration of function 'itoa'
+Finished building: ../lcd.c
+ 
+Building file: ../project.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"project.d" -MT"project.o" -c -o "project.o" "../project.c"
+../project.c: In function 'main':
+../project.c:24: warning: implicit declaration of function 'ULTRASONIC_getDistance'
+Finished building: ../project.c
+ 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../ultrasonic.c: In function 'ULTRASONIC_init':
+../ultrasonic.c:74: error: incompatible type for argument 1 of 'ICU_init'
+make: *** [ultrasonic.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+14:22:37 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+./project.o: In function `main':
+../project.c:24: undefined reference to `ULTRASONIC_getDistance'
+make: *** [DISTANCE_SENSOR.elf] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+14:22:55 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../project.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"project.d" -MT"project.o" -c -o "project.o" "../project.c"
+Finished building: ../project.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9676 bytes (29.5% Full)
+(.text + .data + .bootloader)
+
+Data:        285 bytes (13.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+14:39:53 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../gpio.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"gpio.d" -MT"gpio.o" -c -o "gpio.o" "../gpio.c"
+Finished building: ../gpio.c
+ 
+Building file: ../icu.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"icu.d" -MT"icu.o" -c -o "icu.o" "../icu.c"
+../icu.c: In function 'ICU_setCallBack':
+../icu.c:82: warning: function return types not compatible due to 'volatile'
+Finished building: ../icu.c
+ 
+Building file: ../lcd.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"lcd.d" -MT"lcd.o" -c -o "lcd.o" "../lcd.c"
+In file included from ../lcd.c:13:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../lcd.c: In function 'LCD_intgerToString':
+../lcd.c:209: warning: implicit declaration of function 'itoa'
+Finished building: ../lcd.c
+ 
+Building file: ../project.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"project.d" -MT"project.o" -c -o "project.o" "../project.c"
+Finished building: ../project.c
+ 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9676 bytes (29.5% Full)
+(.text + .data + .bootloader)
+
+Data:        285 bytes (13.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+14:40:17 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../lcd.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"lcd.d" -MT"lcd.o" -c -o "lcd.o" "../lcd.c"
+In file included from ../lcd.c:13:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../lcd.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9676 bytes (29.5% Full)
+(.text + .data + .bootloader)
+
+Data:        285 bytes (13.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:06:49 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../gpio.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"gpio.d" -MT"gpio.o" -c -o "gpio.o" "../gpio.c"
+Finished building: ../gpio.c
+ 
+Building file: ../icu.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"icu.d" -MT"icu.o" -c -o "icu.o" "../icu.c"
+../icu.c: In function 'ICU_setCallBack':
+../icu.c:82: warning: function return types not compatible due to 'volatile'
+Finished building: ../icu.c
+ 
+Building file: ../lcd.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"lcd.d" -MT"lcd.o" -c -o "lcd.o" "../lcd.c"
+In file included from ../lcd.c:13:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../lcd.c
+ 
+Building file: ../project.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"project.d" -MT"project.o" -c -o "project.o" "../project.c"
+Finished building: ../project.c
+ 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9664 bytes (29.5% Full)
+(.text + .data + .bootloader)
+
+Data:        285 bytes (13.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:21:10 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9668 bytes (29.5% Full)
+(.text + .data + .bootloader)
+
+Data:        285 bytes (13.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:31:40 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../ultrasonic.c: In function 'ULTRASONIC_edgeProcessing':
+../ultrasonic.c:32: warning: implicit declaration of function 'ICU_setEdgeDetection'
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+./ultrasonic.o: In function `ULTRASONIC_edgeProcessing':
+../ultrasonic.c:32: undefined reference to `ICU_setEdgeDetection'
+../ultrasonic.c:40: undefined reference to `ICU_setEdgeDetection'
+make: *** [DISTANCE_SENSOR.elf] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+21:32:00 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9668 bytes (29.5% Full)
+(.text + .data + .bootloader)
+
+Data:        285 bytes (13.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:39:49 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9668 bytes (29.5% Full)
+(.text + .data + .bootloader)
+
+Data:        285 bytes (13.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:41:25 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    8974 bytes (27.4% Full)
+(.text + .data + .bootloader)
+
+Data:         29 bytes (1.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:42:58 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    8976 bytes (27.4% Full)
+(.text + .data + .bootloader)
+
+Data:         29 bytes (1.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:43:22 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../project.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"project.d" -MT"project.o" -c -o "project.o" "../project.c"
+Finished building: ../project.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    8970 bytes (27.4% Full)
+(.text + .data + .bootloader)
+
+Data:         31 bytes (1.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+21:47:21 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    8956 bytes (27.3% Full)
+(.text + .data + .bootloader)
+
+Data:         31 bytes (1.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+22:02:30 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9024 bytes (27.5% Full)
+(.text + .data + .bootloader)
+
+Data:         33 bytes (1.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+22:04:34 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9036 bytes (27.6% Full)
+(.text + .data + .bootloader)
+
+Data:         33 bytes (1.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+22:06:27 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9036 bytes (27.6% Full)
+(.text + .data + .bootloader)
+
+Data:         33 bytes (1.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+22:07:58 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../project.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"project.d" -MT"project.o" -c -o "project.o" "../project.c"
+Finished building: ../project.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9064 bytes (27.7% Full)
+(.text + .data + .bootloader)
+
+Data:         35 bytes (1.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+18:22:00 **** Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../gpio.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"gpio.d" -MT"gpio.o" -c -o "gpio.o" "../gpio.c"
+Finished building: ../gpio.c
+ 
+Building file: ../icu.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"icu.d" -MT"icu.o" -c -o "icu.o" "../icu.c"
+../icu.c: In function 'ICU_setCallBack':
+../icu.c:82: warning: function return types not compatible due to 'volatile'
+Finished building: ../icu.c
+ 
+Building file: ../lcd.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"lcd.d" -MT"lcd.o" -c -o "lcd.o" "../lcd.c"
+In file included from ../lcd.c:13:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../lcd.c
+ 
+Building file: ../project.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"project.d" -MT"project.o" -c -o "project.o" "../project.c"
+Finished building: ../project.c
+ 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9082 bytes (27.7% Full)
+(.text + .data + .bootloader)
+
+Data:         35 bytes (1.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+18:23:43 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9096 bytes (27.8% Full)
+(.text + .data + .bootloader)
+
+Data:         35 bytes (1.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+18:24:10 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9064 bytes (27.7% Full)
+(.text + .data + .bootloader)
+
+Data:         35 bytes (1.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+18:25:20 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9064 bytes (27.7% Full)
+(.text + .data + .bootloader)
+
+Data:         35 bytes (1.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+18:25:25 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9064 bytes (27.7% Full)
+(.text + .data + .bootloader)
+
+Data:         35 bytes (1.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+18:26:02 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9096 bytes (27.8% Full)
+(.text + .data + .bootloader)
+
+Data:         35 bytes (1.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+18:31:58 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9104 bytes (27.8% Full)
+(.text + .data + .bootloader)
+
+Data:         35 bytes (1.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+18:32:21 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9104 bytes (27.8% Full)
+(.text + .data + .bootloader)
+
+Data:         35 bytes (1.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+19:15:39 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../gpio.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"gpio.d" -MT"gpio.o" -c -o "gpio.o" "../gpio.c"
+Finished building: ../gpio.c
+ 
+Building file: ../icu.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"icu.d" -MT"icu.o" -c -o "icu.o" "../icu.c"
+../icu.c: In function 'ICU_setCallBack':
+../icu.c:82: warning: function return types not compatible due to 'volatile'
+Finished building: ../icu.c
+ 
+Building file: ../lcd.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"lcd.d" -MT"lcd.o" -c -o "lcd.o" "../lcd.c"
+In file included from ../lcd.c:13:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../lcd.c
+ 
+Building file: ../project.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"project.d" -MT"project.o" -c -o "project.o" "../project.c"
+Finished building: ../project.c
+ 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9064 bytes (27.7% Full)
+(.text + .data + .bootloader)
+
+Data:         35 bytes (1.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+19:35:02 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9112 bytes (27.8% Full)
+(.text + .data + .bootloader)
+
+Data:         35 bytes (1.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+19:43:22 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9078 bytes (27.7% Full)
+(.text + .data + .bootloader)
+
+Data:         36 bytes (1.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+19:43:34 **** Incremental Build of configuration Debug for project DISTANCE_SENSOR ****
+make all 
+Building file: ../ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic.d" -MT"ultrasonic.o" -c -o "ultrasonic.o" "../ultrasonic.c"
+In file included from ../ultrasonic.c:11:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../ultrasonic.c
+ 
+Building target: DISTANCE_SENSOR.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DISTANCE_SENSOR.map -mmcu=atmega32 -o "DISTANCE_SENSOR.elf"  ./gpio.o ./icu.o ./lcd.o ./project.o ./ultrasonic.o   
+Finished building target: DISTANCE_SENSOR.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DISTANCE_SENSOR.elf  >"DISTANCE_SENSOR.lss"
+Finished building: DISTANCE_SENSOR.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DISTANCE_SENSOR.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9082 bytes (27.7% Full)
+(.text + .data + .bootloader)
+
+Data:         36 bytes (1.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

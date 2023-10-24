@@ -1,0 +1,95 @@
+/*
+ * ultrasonic.c
+ *
+ *  Created on: Oct 16, 2023
+ *      Author: Wael
+ */
+
+#include "ultrasonic.h"
+#include "icu.h"
+#include "gpio.h"
+#include <util/delay.h>
+
+
+/*************************************************************
+ * 						Global Variables
+ *************************************************************/
+uint8 g_edgeCount = 0;	/* Count the number of edges detected by ICU */
+uint16 g_timeHigh = 0;	/* Track the pulse width of the captured signal by ICU */
+
+
+/*************************************************************
+ * 						Private Function
+ *************************************************************/
+/* This is a PRIVATE function */
+/* This is the callback function and is not callable in the normal state */
+void ULTRASONIC_edgeProcessing(void){
+	g_edgeCount++;
+	if(g_edgeCount == 1)
+	{
+		/*
+		 * Clear the timer counter register to start measurements from the
+		 * first detected rising edge
+		 */
+		ICU_clearTimerValue();
+		/* Detect falling edge */
+		ICU_setEdgeDetectionType(FALLING);
+	}
+	else if(g_edgeCount == 2)
+	{
+		/* Store the High time value */
+		g_timeHigh = ICU_getInputCaptureValue();
+		/* Detect rising edge */
+		ICU_setEdgeDetectionType(RAISING);
+	}
+}
+
+/* Description: Function to start the operation of the sensor & ICU
+ * 1- Send trigger pulse to the ultrasonic
+ */
+void ULTRASONIC_trigger(void){
+	/* Write trigger pin with 1 */
+	GPIO_writePin(TRIGGER_PORT_ID, TRIGGER_PIN_ID, LOGIC_HIGH);
+	/* Pulse lasts for 10us */
+	_delay_us(10);
+	/* Reset pin state to 0 */
+	GPIO_writePin(TRIGGER_PORT_ID, TRIGGER_PIN_ID, LOGIC_LOW);
+}
+
+
+
+
+/*************************************************************
+ * 						Global Function
+ *************************************************************/
+
+/* Description: Initialize the ultrasonic driver
+ * 1- Initialize ICU
+ * 2- Setup ICU callback function
+ * 3- Setup direction of trigger pin as output
+ */
+void ULTRASONIC_init(void){
+	/* Initializing ICU */
+	ICU_ConfigType icu_configs = {F_CPU_8, RAISING};
+	ICU_init(icu_configs);
+
+	/* Setup ICU callback function */
+	ICU_setCallBack(ULTRASONIC_edgeProcessing);
+
+	/* Setting up the direction of the Trigger Pin */
+	GPIO_setupPinDirection(TRIGGER_PORT_ID, TRIGGER_PIN_ID, PIN_OUTPUT);
+}
+
+/* Description: Function to read the sensor echo signal
+ * 				and return the calculated signal
+ * 1- Send trigger pulse
+ * 2- Start measurements
+ */
+uint16 ULTRASONIC_readDistance(void){
+	/* Sending trigger pulse */
+	ULTRASONIC_trigger();
+}
+
+
+
+
